@@ -22,20 +22,13 @@ export default {
       required: true,
     },
   },
-  methods: {
-    favouriteTwoot(id) {
-      // passando evento para component pai
-      // custom event "favourite"
-      this.$emit("favourite", id);
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
 .twoot-item {
   padding: 20px;
-  background: white;
+  background-color: white;
   border-radius: 5px;
   border: 1px solid #dfe3e8;
   box-sizing: border-box;
