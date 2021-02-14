@@ -4,26 +4,24 @@
       <router-link to="/">
         <div class="navigation__logo">Twooter</div>
       </router-link>
-      <div class="navigation__user">{{ state.user.username }}</div>
+      <div class="navigation__user" v-if="user">{{ user.username }}</div>
     </nav>
     <router-view />
   </div>
 </template>
 
 <script>
-import { reactive } from "vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   name: "App",
   setup() {
-    const state = reactive({
-      user: {
-        username: "benihasegawa",
-      },
-    });
+    const store = useStore();
+    const user = computed(() => store.state.UserStore.user);
 
     return {
-      state,
+      user,
     };
   },
 };
